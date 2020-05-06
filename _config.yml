@@ -16,7 +16,7 @@
 title: Jerry Leung
 email: jerrytfleung@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Jerry Leung technical blog
+  Jerry Leung's blog
 twitter_username: jerrytfleung
 github_username: jerrytfleung
 minimal_mistakes_skin: dark
@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Jerry Leung"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Hunt knowledge everyday"
+  bio    : "Working hard to be the best!"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
