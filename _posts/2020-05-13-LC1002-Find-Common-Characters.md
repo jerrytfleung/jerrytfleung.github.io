@@ -1,5 +1,5 @@
 ---
-title: "1002 Find Common Characters"
+title: "1002. Find Common Characters"
 date: 2020-05-13T22:45:00-7:00
 categories:
   - Competitive Programming
