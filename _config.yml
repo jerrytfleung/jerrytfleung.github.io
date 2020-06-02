@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "Jerry Leung"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/Jerry.png"
   bio    : "Working hard to be the best!"
   links:
     - label: "Website"
