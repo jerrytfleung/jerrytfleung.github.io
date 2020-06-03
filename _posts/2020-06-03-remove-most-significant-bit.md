@@ -2,10 +2,10 @@
 title: "Remove most significant bit"
 date: 2020-06-03 14:00:00 -07:00
 categories:
-  - Tricks
+  - tricks
 tags:
-  - C++
-  - Bit Operation
+  - c++
+  - bit operation
 ---
 
 To remove the most significant bit of a number ```x``` with its bit size ```k```, we could apply
