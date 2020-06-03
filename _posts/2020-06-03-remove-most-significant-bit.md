@@ -1,6 +1,6 @@
 ---
 title: "Remove most significant bit"
-date: 2020-06-103T14:00:00-7:00
+date: 2020-06-03 14:00:00 -07:00
 categories:
   - Tricks
 tags:
