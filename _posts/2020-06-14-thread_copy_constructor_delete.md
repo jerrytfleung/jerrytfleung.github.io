@@ -54,7 +54,8 @@ void push_back( T&& value ); (since C++11)
 Still you can use ```std::move``` to produce the rvalue reference of ```thread(thread_function)```.
 
 How about copy assignment operator of thread?  
-There is no copy assignment operator but move assignment operator in thread class.
+There is no copy assignment operator but move assignment operator in thread class.  
+The copy assignment operator is generated only for classes lacking an explicitly declared copy assignment operator, and it’s *deleted* if a move operation is declared.
 ```
 thread& operator=( thread&& other ) noexcept; (since C++11)
 ```
