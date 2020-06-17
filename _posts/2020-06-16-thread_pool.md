@@ -8,29 +8,23 @@ tags:
   - thread
 ---
 
-1. Clarification  
+## Clarification  
 a. We can specify number of threads in the pool  
 b. We can enqueue tasks (For simplicity, task takes no argument and returns an integer) into the thread pool  
 c. We can retrieve the result of task from the thread pool  
 
-2. API definition  
-```
-// Start the thread pool
+## API definition  
+<pre><code>// Start the thread pool
 void start(int num_of_threads);
 // Stop the thread pool
 void stop();
 // Enqueue a task into thread pool and with a future object return
 std::future<int> enqueue(packaged_task<int()> task);
-```
+</code></pre>
 
-3. Implementation  
-We need the following to create the most basic form of a thread pool  
-a. a mutex (m)  
-b. a condition_variable (cv)  
-c. a bool (stopping)  
-d. a vector of thread (threads)  
-```
-class ThreadPool {
+## Implementation  
+We need a mutex, a condition_variable, a boolean & a vector of threads to create the most basic form of a thread pool  
+<pre><code>class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -52,10 +46,8 @@ private:
             threads.push_back(std::thread([=]() {
                 while (true) {
                     std::unique_lock<std::mutex> lock(m);
-                    /**
-                     * The wait of condition_variable will block the current thread, will unlock the lock, waiting for the stopping to be true.
-                     * If other thread notify_one() or notify_all() and stopping is false, it will wait again.
-                     */
+                    // The wait of condition_variable will block the current thread, will unlock the lock, waiting for the stopping to be true.
+                    // If other thread notify_one() or notify_all() and stopping is false, it will wait again.
                     cv.wait(lock, [=]() {
                         return stopping;
                     });
@@ -78,11 +70,9 @@ private:
         }
     }
 };
-```
-We need the following in order to support adding tasks  
-a. a queue  
-```
-class ThreadPool {
+</code></pre>
+We need a queue in order to support adding tasks  
+<pre><code>class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -114,10 +104,6 @@ private:
                     std::packaged_task<void()> task;
                     {
                         std::unique_lock<std::mutex> lock(m);
-                        /**
-                         * The wait of condition_variable will block the current thread, will unlock the lock, waiting for the stopping to be true.
-                         * If other thread notify_one() or notify_all() and stopping is false, it will wait again.
-                         */
                         cv.wait(lock, [=]() {
                             return stopping || !q.empty();
                         });
@@ -146,10 +132,9 @@ private:
         }
     }
 };
-```
+</code></pre>
 We can finalise the implementation by adding a std::future in the return of enqueue function and change ```void``` to ```int```
-```
-class ThreadPool {
+<pre><code>class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -183,10 +168,6 @@ private:
                     std::packaged_task<int()> task;
                     {
                         std::unique_lock<std::mutex> lock(m);
-                        /**
-                         * The wait of condition_variable will block the current thread, will unlock the lock, waiting for the stopping to be true.
-                         * If other thread notify_one() or notify_all() and stopping is false, it will wait again.
-                         */
                         cv.wait(lock, [=]() {
                             return stopping || !q.empty();
                         });
@@ -215,4 +196,4 @@ private:
         }
     }
 };
-```
+</code></pre>
