@@ -147,7 +147,7 @@ private:
     }
 };
 ```
-We can finalise the implementation by adding a std::future in the return of enqueue function and change ```void``` to ```int```.
+We can finalise the implementation by adding a std::future in the return of enqueue function and change ```void``` to ```int```
 ```
 class ThreadPool {
 public:
