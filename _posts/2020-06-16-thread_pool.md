@@ -25,10 +25,10 @@ std::future<int> enqueue(packaged_task<int()> task);
 
 3. Implementation  
 We need the following to create the most basic form of a thread pool
-- a mutex (m)
-- a condition_variable (cv)
-- a bool (stopping)
-- a vector of thread (threads)
+a. a mutex (m)
+b. a condition_variable (cv)
+c. a bool (stopping)
+d. a vector of thread (threads)
 ```
 class ThreadPool {
 public:
@@ -80,7 +80,7 @@ private:
 };
 ```
 We need the following in order to support adding tasks
-- a queue
+a. a queue
 ```
 class ThreadPool {
 public:
