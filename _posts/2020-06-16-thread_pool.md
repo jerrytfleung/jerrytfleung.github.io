@@ -14,17 +14,19 @@ b. We can enqueue tasks (For simplicity, task takes no argument and returns an i
 c. We can retrieve the result of task from the thread pool  
 
 ## API definition  
-<pre><code>// Start the thread pool
+```
+// Start the thread pool
 void start(int num_of_threads);
 // Stop the thread pool
 void stop();
 // Enqueue a task into thread pool and with a future object return
 std::future<int> enqueue(packaged_task<int()> task);
-</code></pre>
+```
 
 ## Implementation  
 We need a mutex, a condition_variable, a boolean & a vector of threads to create the most basic form of a thread pool  
-<pre><code>class ThreadPool {
+```
+class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -70,9 +72,10 @@ private:
         }
     }
 };
-</code></pre>
+```
 We need a queue in order to support adding tasks  
-<pre><code>class ThreadPool {
+```
+class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -132,9 +135,10 @@ private:
         }
     }
 };
-</code></pre>
+```
 We can finalise the implementation by adding a std::future in the return of enqueue function and change ```void``` to ```int```
-<pre><code>class ThreadPool {
+```
+class ThreadPool {
 public:
     explicit ThreadPool(int num_of_threads) {
         stopping = false;
@@ -196,4 +200,4 @@ private:
         }
     }
 };
-</code></pre>
+```
