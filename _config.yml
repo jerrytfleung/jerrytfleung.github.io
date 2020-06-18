@@ -74,6 +74,7 @@ footer:
       url: "https://github.com/jerrytfleung"
 
 defaults:
+  classes: wide
   # _posts
   - scope:
       path: ""
