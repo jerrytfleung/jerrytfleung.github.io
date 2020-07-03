@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Jerry Leung"
   avatar : "/assets/images/Jerry.png"
-  bio    : "Working hard to be the best!"
+  bio    : "Keep calm and carry on"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
