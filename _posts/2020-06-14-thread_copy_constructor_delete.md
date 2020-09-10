@@ -55,7 +55,7 @@ Still you can use ```std::move``` to produce the rvalue reference of ```thread(t
 
 How about copy assignment operator of thread?  
 There is no copy assignment operator but move assignment operator in thread class.  
-The copy assignment operator is generated only for classes lacking an explicitly declared copy assignment operator, and it’s *deleted* if a move operation is declared.
+The copy assignment operator is generated only for classes lacking an explicitly declared copy assignment operator, and it won't *generated* if a move operation is declared.
 ```
 thread& operator=( thread&& other ) noexcept; (since C++11)
 ```
