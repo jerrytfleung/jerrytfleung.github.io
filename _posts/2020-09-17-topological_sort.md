@@ -54,6 +54,7 @@ vector<int> TopologicalSortByBFS(int N, vector<pair<int, int>> links) {
       return ans;
 }
 ```
+
 ## Method 2 - DFS
 1. Convert edges into adjacency list.
 2. Maintain a visited list and use DFS to traverse, steps are follow:
