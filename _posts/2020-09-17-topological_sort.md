@@ -9,11 +9,10 @@ tags:
 ---
 
 ## Problem  
-```  
 There are n nodes and the are labelled from 0 to n - 1.  
 Some nodes may have directed linkage, for example, if links[i] = [ai, bi] this means ai is pointing to bi.  
 Implement topological sort.  
-```  
+
 
 ## Method 1 - BFS  
 1. Convert edges into adjacency list.  
