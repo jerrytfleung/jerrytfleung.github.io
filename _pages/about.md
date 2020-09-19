@@ -6,7 +6,7 @@ title: "About"
 # My study plan  
 - Problem solving [Leetcode](https://leetcode.com/), [Hackerrank](https://www.hackerrank.com/)
 - Data structure (Union Find, suffix array, Fenwick tree)
-- Algorithm (Binary search, Dynamic programming, fucking string searching algorithm(s), fucking shortest path algorithm(s), fucking topological sort...)
+- Algorithm (Binary search, Dynamic programming, string searching algorithm(s), shortest path algorithm(s), topological sort...)
 - c++ language [cppreference](http://www.cppreference.com
 ), [Effective Modern C++](https://www.oreilly.com/library/view/effective-modern-c/9781491908419/)
 - Software design
